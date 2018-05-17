@@ -1,8 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * ------------------------------ENCABEZADO------------------------------
+ * Nombre del Programa: Sistema Integral de Tutorias (SIT)
+ * @autor Ganbriela Sandoval Cruz
+ * @autor Jose Rodrigo Ordóñes Pacheco
+ * @autor Edson Neftali Melgarejo Morales
+ * @since 16/Mayo/2018
+ * Descripción: El Sistema de Tutorías (SIT) de la Universidad Veracruzana (UV)
+ *      es el responsable de ayudarle al tutor a brindarle orientación al 
+ *      estudiante en las decisiones relacionadas con su formación profesional
+ *      de acuerdo con sus expectativas, capacidades e intereses.
+ * @version: alpha 0.1.0.0  16/05/2018
  */
+
 package proyectosit;
 
 import javafx.application.Application;
@@ -13,32 +22,11 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-/**
- *
- * @author edson
- */
 public class ProyectoSIT extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
         
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        
-        Scene scene = new Scene(root, 300, 250);
-        
-        primaryStage.setTitle("Hello World!");
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
 
     /**
