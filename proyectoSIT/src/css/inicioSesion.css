@@ -1,7 +1,31 @@
 /*
- * Empty Stylesheet file.
- */
+*  Archivo css de la GUI inicioSesionGUI.fxml
+*/
 
 .mainFxmlClass {
+}
 
+#barraInferior{
+    -fx-background-color: #F4A204;
+}
+
+.lbInicioSesion{
+    -fx-text-fill: #FF9700;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+#btnIngresar{
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #D1D1D1;
+    -fx-text-fill: #FF9700;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+#btnIngresar:hover{
+    -fx-background-color: #FF9700;
+    -fx-border-color: #D1D1D1;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
 }
