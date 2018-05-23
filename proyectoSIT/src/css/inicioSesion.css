@@ -2,7 +2,8 @@
 *  Archivo css de la GUI inicioSesionGUI.fxml
 */
 
-.mainFxmlClass {
+#bpInicioSesion{
+    -fx-background-color: #FFFFFF;
 }
 
 #barraInferior{
@@ -16,7 +17,7 @@
 }
 
 .lbInicioSesion{
-    -fx-text-fill: #FF9900;
+    -fx-text-fill: #FF6600;
     -fx-font-size: 18px;
     -fx-font-weight: bold;
 }

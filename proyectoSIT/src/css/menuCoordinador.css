@@ -1,0 +1,53 @@
+/*
+*  Archivo css de la GUI menuCoordinadorGUI.fxml
+*/
+
+.mainFxmlClass {
+
+}
+
+#bpMenuCoordinador{
+    -fx-background-color: #FFFFFF;
+}
+
+#lbUsuario{
+    -fx-text-fill: #003E8C;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+#barraInferior{
+    -fx-background-color: #FF9900;
+}
+
+.lbMenuCoordinador{
+    -fx-text-fill: #FF6600;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.btnMenuCoordinador{
+    -fx-text-fill: #003E8C;
+    -fx-border-width: 15px;
+    -fx-border-color: #003E8C;
+    -fx-background-color: #FFFFFF;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 15;
+}
+.btnMenuCoordinador:hover{
+    -fx-text-fill: #FFFFFF;
+    -fx-border-width: 15px;
+    -fx-border-color: #003E8C;
+    -fx-background-color: #003E8C;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 15;
+}
+
+#btnSalir{
+    -fx-background-color: rgba(0,0,0,0);
+}
+#btnSalir:hover{
+    -fx-background-color: rgba(0,0,0,1);
+}
