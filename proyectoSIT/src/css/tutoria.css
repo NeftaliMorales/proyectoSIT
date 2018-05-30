@@ -1,0 +1,100 @@
+/*
+ * Archivo css de la GUI tutoriaGUI.fxml
+ */
+
+.mainFxmlClass {
+    -fx-background-color: #FFFFFF;
+}
+
+#barraInferior{
+    -fx-background-color: #FF9900;
+}
+
+#barraTitulo{
+    -fx-background-color: #003E8C;
+}
+
+#lbUsuario{
+    -fx-text-fill: #003E8C;
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+}
+
+#lbTutoria{
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+#btnSalir{
+    -fx-background-color: rgba(0,0,0,0);
+}
+#btnSalir:hover{
+    -fx-background-color: rgba(255,155,75,.5);
+}
+
+#bpTutoria{
+    -fx-background-color: #D1D1D1;
+}
+
+.pnTutoria{
+    -fx-background-color: #FFFFFF;
+}
+
+.lbTitulosTutoria{
+    -fx-text-fill: #FF6600;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.lbTituloLista{
+    -fx-text-fill: #000000;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.btnTutoria{
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #AAABA9;
+}
+.btnTutoria:hover{
+    -fx-background-color: #AAABA9;
+    -fx-border-color: #AAABA9;
+    -fx-text-fill: #FFFFFF;
+}
+
+/*-----SELECCIONAR------------------------------------------------------------*/
+#pnSeleccionarTutorado{
+}
+
+/*----------------------------------------------------------------------------*/
+
+/*-----SESION-----------------------------------------------------------------*/
+#pnSesion{
+    
+}
+
+#pnInformacionTutorado{
+    -fx-background-color: #FF9900;
+}
+
+.lbInfoTutorado{
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+
+#btnAsistencia{
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #AAABA9;
+}
+#btnAsistencia:selected{
+    -fx-background-color: #2AAF74;
+    -fx-border-color: #AAABA9;
+}
+/*----------------------------------------------------------------------------*/
+
+/*-----PROBLEMA---------------------------------------------------------------*/
+#pnReportarProblema{
+    
+}
+/*----------------------------------------------------------------------------*/

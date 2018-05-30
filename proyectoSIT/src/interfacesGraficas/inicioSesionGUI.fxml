@@ -32,9 +32,9 @@
          <center>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <PasswordField layoutX="25.0" layoutY="230.0" prefWidth="200.0" />
                   <Label layoutX="25.0" layoutY="200.0" prefHeight="25.0" prefWidth="250.0" styleClass="lbInicioSesion" text="%lbPassword" />
                   <TextField layoutX="25.0" layoutY="150.0" prefWidth="200.0" />
+                  <PasswordField layoutX="25.0" layoutY="230.0" prefWidth="200.0" />
                   <Label layoutX="25.0" layoutY="120.0" prefHeight="25.0" prefWidth="250.0" styleClass="lbInicioSesion" text="%lbNombreUsuario" />
                   <Label id="lbInicioSesion" layoutX="25.0" layoutY="80.0" prefHeight="25.0" prefWidth="250.0" text="%lbInicioSesion" />
                   <Button id="btnIngresar" layoutX="80.0" layoutY="280.0" mnemonicParsing="false" text="Button" />

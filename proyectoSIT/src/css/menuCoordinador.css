@@ -3,11 +3,11 @@
 */
 
 .mainFxmlClass {
-
+    -fx-background-color: #FFFFFF;
 }
 
 #bpMenuCoordinador{
-    -fx-background-color: #FFFFFF;
+    
 }
 
 #lbUsuario{
@@ -49,5 +49,5 @@
     -fx-background-color: rgba(0,0,0,0);
 }
 #btnSalir:hover{
-    -fx-background-color: rgba(0,0,0,1);
+    -fx-background-color: rgba(255,155,75,.5);
 }

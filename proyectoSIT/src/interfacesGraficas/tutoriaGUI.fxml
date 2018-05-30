@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1358.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.TutoriaController">
+    <stylesheets>
+        <URL value="@/css/tutoria.css" />
+    </stylesheets>
+   <children>
+      <BorderPane layoutX="267.0" layoutY="87.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <bottom>
+            <Pane id="barraInferior" prefHeight="25.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </bottom>
+         <top>
+            <BorderPane prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <bottom>
+                  <Pane id="barraTitulo" prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label id="lbTutoria" layoutX="628.0" layoutY="3.0" text="%lbTutoria" />
+                     </children></Pane>
+               </bottom>
+               <top>
+                  <Pane prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="40.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imagenes/Logo%20SIT.png" />
+                           </image>
+                        </ImageView>
+                        <Label id="lbUsuario" layoutX="108.0" layoutY="32.0" text="Nombre de usuario" />
+                        <Button id="btnSalir" layoutX="1233.0" layoutY="21.0" mnemonicParsing="false">
+                           <graphic>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagenes/iconoSalir.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </Pane>
+               </top>
+            </BorderPane>
+         </top>
+         <center>
+            <BorderPane id="bpTutoria" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <left>
+                  <Pane id="pnSeleccionarTutorado" prefHeight="315.0" prefWidth="300.0" styleClass="pnTutoria" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="10.0" left="10.0" top="10.0" />
+                     </BorderPane.margin>
+                     <children>
+                        <Label id="lbSeleccionarTutorado" layoutX="14.0" layoutY="-1.0" styleClass="lbTitulosTutoria" text="%lbSeleccionarTutorado" />
+                        <Label layoutX="25.0" layoutY="41.0" prefHeight="17.0" prefWidth="50.0" text="%lbBuscar" />
+                        <TextField layoutX="75.0" layoutY="37.0" prefHeight="25.0" prefWidth="200.0" />
+                        <ListView layoutX="25.0" layoutY="91.0" prefHeight="190.0" prefWidth="250.0" />
+                        <Label id="lbTutorados" layoutX="25.0" layoutY="70.0" prefHeight="17.0" prefWidth="250.0" styleClass="lbTituloLista" text="%lbTutorados" />
+                     </children></Pane>
+               </left>
+               <center>
+                  <Pane id="pnSesion" prefHeight="315.0" prefWidth="200.0" styleClass="pnTutoria" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </BorderPane.margin>
+                     <children>
+                        <Label id="lbSesion" layoutX="14.0" layoutY="-1.0" styleClass="lbTitulosTutoria" text="%lbSesion" />
+                        <Pane id="pnInformacionTutorado" layoutX="44.0" layoutY="29.0" prefHeight="90.0" prefWidth="959.0">
+                           <children>
+                              <Label layoutX="10.0" layoutY="5.0" prefHeight="20.0" styleClass="lbInfoTutorado" text="%lbNombre" />
+                              <Label layoutX="10.0" layoutY="25.0" prefHeight="20.0" styleClass="lbInfoTutorado" text="%lbMatricula" />
+                              <Label layoutX="10.0" layoutY="45.0" prefHeight="20.0" styleClass="lbInfoTutorado" text="%lbCarrera" />
+                              <Label layoutX="10.0" layoutY="65.0" prefHeight="20.0" styleClass="lbInfoTutorado" text="%lbSemestre" />
+                              <Label layoutX="123.0" layoutY="5.0" prefHeight="20.0" prefWidth="500.0" styleClass="lbInfoTutorado" />
+                              <Label layoutX="123.0" layoutY="25.0" prefHeight="20.0" prefWidth="500.0" styleClass="lbInfoTutorado" />
+                              <Label layoutX="123.0" layoutY="45.0" prefHeight="20.0" prefWidth="500.0" styleClass="lbInfoTutorado" />
+                              <Label layoutX="123.0" layoutY="65.0" prefHeight="20.0" prefWidth="500.0" styleClass="lbInfoTutorado" />
+                           </children>
+                        </Pane>
+                        <Label layoutX="44.0" layoutY="136.0" text="%lbComentarios" />
+                        <TextArea layoutX="44.0" layoutY="153.0" prefHeight="125.0" prefWidth="450.0" />
+                        <ToggleButton id="btnAsistencia" layoutX="581.0" layoutY="154.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" />
+                        <Label layoutX="611.0" layoutY="160.0" text="%lbAsistencia">
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </Label>
+                        <Button layoutX="902.0" layoutY="253.0" mnemonicParsing="false" styleClass="btnTutoria" text="%btnRegistrarSesion" />
+                     </children></Pane>
+               </center>
+               <bottom>
+                  <Pane id="pnReportarProblema" prefHeight="190.0" prefWidth="200.0" styleClass="pnTutoria" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                     </BorderPane.margin>
+                     <children>
+                        <Label layoutX="14.0" layoutY="-1.0" styleClass="lbTitulosTutoria" text="%lbReportarProblema" />
+                        <ListView layoutX="20.0" layoutY="51.0" prefHeight="125.0" prefWidth="300.0" />
+                        <ListView layoutX="340.0" layoutY="51.0" prefHeight="125.0" prefWidth="300.0" />
+                        <Label layoutX="20.0" layoutY="30.0" prefWidth="200.0" styleClass="lbTituloLista" text="%lbEE" />
+                        <Label layoutX="340.0" layoutY="30.0" prefWidth="200.0" styleClass="lbTituloLista" text="%lbDeptoServ" />
+                        <TextArea layoutX="660.0" layoutY="76.0" prefHeight="100.0" prefWidth="300.0" />
+                        <Label layoutX="660.0" layoutY="59.0" text="%lbComentarios" />
+                        <Button layoutX="987.0" layoutY="18.0" mnemonicParsing="false" styleClass="btnTutoria" text="%btnAgregarProblema" />
+                        <Label layoutX="987.0" layoutY="54.0" prefWidth="100.0" text="%lbDescripcionProblema" />
+                        <TextField layoutX="1087.0" layoutY="50.0" prefWidth="225.0" />
+                        <ComboBox layoutX="1087.0" layoutY="80.0" prefWidth="225.0" />
+                        <TextField layoutX="1087.0" layoutY="110.0" prefWidth="225.0" />
+                        <TextField layoutX="1087.0" layoutY="140.0" prefWidth="150.0" />
+                        <Label layoutX="987.0" layoutY="87.0" prefWidth="100.0" text="%lbTipoProblema" />
+                        <Label layoutX="987.0" layoutY="114.0" prefWidth="100.0" text="%lbEE" />
+                        <Label layoutX="987.0" layoutY="144.0" prefWidth="100.0" text="%lbProfesor" />
+                        <Button layoutX="1253.0" layoutY="140.0" mnemonicParsing="false" styleClass="btnTutoria" text="%btnGuardarProblema" />
+                     </children></Pane>
+               </bottom>
+            </BorderPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

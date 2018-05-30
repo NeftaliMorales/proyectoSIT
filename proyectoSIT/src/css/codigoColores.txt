@@ -1,0 +1,11 @@
+proyecto SIT
+
+colores Hexadecimal
+
+Letras:
+    letras azul:        #003E8C
+    letras naranja:     #FF6600
+
+Barras:
+    barra inferior:     #FF9900
+    barra titulo:       #003E8C
