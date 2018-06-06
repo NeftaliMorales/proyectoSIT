@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.AsignarTutoradosController">
+    <stylesheets>
+        <URL value="@/css/asignarTutorados.css" />
+    </stylesheets>
+   <children>
+      <BorderPane layoutX="251.0" layoutY="49.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <BorderPane prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <bottom>
+                  <Pane id="barraTitulo" prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label id="lbAsignacion" layoutX="128.0" layoutY="3.0" text="%lbAsignacion" />
+                     </children>
+                  </Pane>
+               </bottom>
+               <top>
+                  <Pane prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="40.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imagenes/Logo%20SIT.png" />
+                           </image>
+                        </ImageView>
+                        <Button id="btnSalir" layoutX="500.0" layoutY="21.0" mnemonicParsing="false">
+                           <graphic>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagenes/iconoSalir.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </Pane>
+               </top>
+            </BorderPane>
+         </top>
+         <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <bottom>
+                  <Pane id="barraInferior" prefHeight="25.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+               </bottom>
+               <center>
+                  <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <ListView layoutX="59.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" />
+                        <ListView layoutX="289.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" />
+                        <Button id="btnAsignar" layoutX="518.0" layoutY="126.0" mnemonicParsing="false" text="%btnAsignar" />
+                        <Label layoutX="59.0" layoutY="19.0" prefHeight="17.0" prefWidth="200.0" styleClass="lbTituloLista" text="%lbTutoradosAs" />
+                        <Label layoutX="289.0" layoutY="19.0" prefHeight="17.0" prefWidth="200.0" styleClass="lbTituloLista" text="%lbTutoresAs" />
+                        <CheckBox layoutX="59.0" layoutY="244.0" mnemonicParsing="false" text="%chkSeleccionarTodos" />
+                     </children></Pane>
+               </center>
+            </BorderPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

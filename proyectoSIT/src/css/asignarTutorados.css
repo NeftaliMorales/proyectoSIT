@@ -1,0 +1,44 @@
+/*
+*  Archivo css de la GUI asignarTutoradosGUI.fxml
+*/
+
+.mainFxmlClass {
+    -fx-background-color: #FFFFFF;
+}
+
+#barraInferior{
+    -fx-background-color: #FF9900;
+}
+
+#barraTitulo{
+    -fx-background-color: #003E8C;
+}
+
+#btnSalir{
+    -fx-background-color: rgba(0,0,0,0);
+}
+#btnSalir:hover{
+    -fx-background-color: rgba(255,155,75,.5);
+}
+
+#lbAsignacion{
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+.lbTituloLista{
+    -fx-text-fill: #000000;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+#btnAsignar{
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #AAABA9;
+}
+#btnAsignar:hover{
+    -fx-background-color: #AAABA9;
+    -fx-border-color: #AAABA9;
+    -fx-text-fill: #FFFFFF;
+}
