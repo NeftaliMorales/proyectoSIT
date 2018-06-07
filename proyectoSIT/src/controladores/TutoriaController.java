@@ -20,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javax.swing.JOptionPane;
+import proyectosit.Problema;
 import proyectosit.Tutor;
 import proyectosit.Tutorado;
 
@@ -82,7 +83,6 @@ public class TutoriaController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 int tipo = tipoProblema.getSelectionModel().getSelectedIndex();
-                System.err.println(tipo);
                 if(tipo == 0){                    
                     lbNombreP.setText(rb.getString("lbEE"));
                     lbNombreP.setVisible(true);
@@ -161,9 +161,33 @@ public class TutoriaController implements Initializable {
         boolean validados;
         if(tipo == 0){
             validados = validarTextosProblema(descripcion, nombre, profesor);
+            if(validados == true){                
+                Problema problema = new Problema(descripcion, tipo, nombre, profesor);
+                TutoriaDao tDao = new TutoriaDao();
+                try {
+                    tDao.guardarProblema(problema);
+                } catch (SQLException ex) {
+                    Logger.getLogger(TutoriaController.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, rb.getString("msgErrorGuardar"));
+                }
+            } else{
+                JOptionPane.showMessageDialog(null, rb.getString("msgCompletarDatos"));
+            }
         }
         if(tipo == 1){
             validados = validarTextosProblema(descripcion, nombre);
+            if(validados == true){
+                Problema problema = new Problema(descripcion, tipo, nombre);
+                TutoriaDao tDao = new TutoriaDao();
+                try {
+                    tDao.guardarProblema(problema);
+                } catch (SQLException ex) {
+                    Logger.getLogger(TutoriaController.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, rb.getString("msgErrorGuardar"));
+                }
+            } else{
+                JOptionPane.showMessageDialog(null, rb.getString("msgCompletarDatos"));
+            }
         }
     }
     

@@ -10,8 +10,11 @@ package accesoDatos.InterfacesDAO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import proyectosit.Problema;
 import proyectosit.Tutorado;
 
 public interface TutoriaDAO {
     public ArrayList<Tutorado> recuperarTutorados(int idTutor) throws SQLException;
+    public boolean guardarProblema(Problema problema) throws SQLException;
+    public ArrayList<Problema> recuperarProblemas() throws SQLException;
 }
