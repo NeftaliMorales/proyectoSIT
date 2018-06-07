@@ -41,5 +41,30 @@ public class Tutorado {
     public boolean registrarAsistencia(boolean asistencia){
         return true;
     }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public String getNombres() {
+        return nombres;
+    }
+
+    public String getApellidoPaterno() {
+        return apellidoPaterno;
+    }
+
+    public String getApellidoMaterno() {
+        return apellidoMaterno;
+    }
+
+    public String getCarrera() {
+        return carrera;
+    }
+
+    public int getSemestre() {
+        return semestre;
+    }
+    
     
 }

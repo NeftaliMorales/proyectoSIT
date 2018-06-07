@@ -121,7 +121,9 @@ public class InicioSesionController implements Initializable {
                 
                 stage.setScene(scene);                
                 stage.setMaximized(true);
-                stage.setResizable(false);
+                //stage.setResizable(false);
+                stage.setMinHeight(750);
+                stage.setMinWidth(1358);
                 stage.setTitle(rb.getString("tituloG"));
                 stage.show();
                 this.cerrar();

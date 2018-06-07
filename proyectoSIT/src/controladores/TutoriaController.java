@@ -13,9 +13,12 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javax.swing.JOptionPane;
 import proyectosit.Tutor;
 import proyectosit.Tutorado;
@@ -26,10 +29,31 @@ public class TutoriaController implements Initializable {
     
     private static Tutor tutor;
     
+    //Seleccionar Tutorado
     private @FXML Label nombreUsuario;
     private @FXML TextField buscarTutorado;
     private @FXML ListView<Tutorado> tutorados;
+    
+    //Sesion
+    private @FXML Label nombreTutorado;
+    private @FXML Label matriculaTutorado;
+    private @FXML Label carreraTutorado;
+    private @FXML Label semestreTutorado;
 
+    
+    //Problema
+    private @FXML Button agregarProblema;
+    private @FXML TextField descripcionProblema;
+    private @FXML ComboBox<String> tipoProblema;
+    private @FXML TextField nombreProblema;
+    private @FXML TextField profesorEE;
+    private @FXML Button guardarProblema;
+    
+    private @FXML Label lbDesc;
+    private @FXML Label lbTipoP;
+    private @FXML Label lbNombreP;
+    private @FXML Label lbProfeP;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.rb = rb;
@@ -38,6 +62,51 @@ public class TutoriaController implements Initializable {
                 tutor.getApellidoMaterno());
         
         llenarListaTutorados();
+        
+        this.tipoProblema.getItems().addAll("Experiencia Educativa", "Depto/Servicio");
+        
+        tutorados.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                mostrarInfo(tutorados.getSelectionModel().getSelectedItem());
+            }
+        });
+        
+        agregarProblema.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                mostrarCamposProblema();
+            }
+        });
+        tipoProblema.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                int tipo = tipoProblema.getSelectionModel().getSelectedIndex();
+                System.err.println(tipo);
+                if(tipo == 0){                    
+                    lbNombreP.setText(rb.getString("lbEE"));
+                    lbNombreP.setVisible(true);
+                    nombreProblema.setVisible(true);
+                    lbProfeP.setVisible(true);
+                    profesorEE.setVisible(true);
+                    guardarProblema.setVisible(true);
+                }
+                if(tipo == 1){
+                    lbNombreP.setText(rb.getString("lbDpto/serv"));
+                    lbNombreP.setVisible(true);
+                    profesorEE.setVisible(false);
+                    lbProfeP.setVisible(false);
+                    nombreProblema.setVisible(true);
+                    guardarProblema.setVisible(true);
+                }
+            }
+        });
+        guardarProblema.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                guardarProblema();
+            }
+        });
     }    
     
     /**
@@ -60,6 +129,49 @@ public class TutoriaController implements Initializable {
             Logger.getLogger(TutoriaController.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, rb.getString("msgErroDB"));
         }
+    }
+    
+    /**
+     * Método que muestra la información del tutorado que se selecciono.
+     * @param tutorado Tutorado seleccionado de la lista tutorados.
+     */
+    private void mostrarInfo(Tutorado tutorado){
+        this.nombreTutorado.setText(tutorado.getNombres()+" "+
+                tutorado.getApellidoPaterno()+" "+tutorado.getApellidoMaterno());
+        this.matriculaTutorado.setText(tutorado.getMatricula());
+        this.carreraTutorado.setText(tutorado.getCarrera());
+        this.semestreTutorado.setText(String.valueOf(tutorado.getSemestre())+"°");
+    }
+    
+    private void mostrarCamposProblema(){
+        lbDesc.setVisible(true);
+        lbTipoP.setVisible(true);
+        descripcionProblema.setVisible(true);
+        tipoProblema.setVisible(true);
+    }
+    
+    /**
+     * Método que registra un nuevo problema en la base de datos.
+     */
+    private void guardarProblema(){
+        String descripcion = descripcionProblema.getText();
+        int tipo = tipoProblema.getSelectionModel().getSelectedIndex();
+        String nombre = nombreProblema.getText();
+        String profesor = profesorEE.getText();
+        boolean validados;
+        if(tipo == 0){
+            validados = validarTextosProblema(descripcion, nombre, profesor);
+        }
+        if(tipo == 1){
+            validados = validarTextosProblema(descripcion, nombre);
+        }
+    }
+    
+    private boolean validarTextosProblema(String desc, String nomb, String prof){
+        return !(desc.equals("") || nomb.equals("") || prof.equals(""));
+    }
+    private boolean validarTextosProblema(String desc, String nomb){
+        return !(desc.equals("") || nomb.equals(""));
     }
     
     /**

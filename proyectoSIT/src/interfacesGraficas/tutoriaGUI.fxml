@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1358.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.TutoriaController">
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1358.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.TutoriaController">
     <stylesheets>
         <URL value="@/css/tutoria.css" />
     </stylesheets>
@@ -77,14 +77,14 @@
                               <Label layoutX="10.0" layoutY="25.0" prefHeight="20.0" styleClass="lbInfoTutorado" text="%lbMatricula" />
                               <Label layoutX="10.0" layoutY="45.0" prefHeight="20.0" styleClass="lbInfoTutorado" text="%lbCarrera" />
                               <Label layoutX="10.0" layoutY="65.0" prefHeight="20.0" styleClass="lbInfoTutorado" text="%lbSemestre" />
-                              <Label layoutX="123.0" layoutY="5.0" prefHeight="20.0" prefWidth="500.0" styleClass="lbInfoTutorado" />
-                              <Label layoutX="123.0" layoutY="25.0" prefHeight="20.0" prefWidth="500.0" styleClass="lbInfoTutorado" />
-                              <Label layoutX="123.0" layoutY="45.0" prefHeight="20.0" prefWidth="500.0" styleClass="lbInfoTutorado" />
-                              <Label layoutX="123.0" layoutY="65.0" prefHeight="20.0" prefWidth="500.0" styleClass="lbInfoTutorado" />
+                              <Label fx:id="nombreTutorado" layoutX="123.0" layoutY="5.0" prefHeight="20.0" styleClass="lbInfoTutorado" />
+                              <Label fx:id="matriculaTutorado" layoutX="123.0" layoutY="25.0" prefHeight="20.0" styleClass="lbInfoTutorado" />
+                              <Label fx:id="carreraTutorado" layoutX="123.0" layoutY="45.0" prefHeight="20.0" styleClass="lbInfoTutorado" />
+                              <Label fx:id="semestreTutorado" layoutX="123.0" layoutY="65.0" prefHeight="20.0" styleClass="lbInfoTutorado" />
                            </children>
                         </Pane>
                         <Label layoutX="44.0" layoutY="136.0" text="%lbComentarios" />
-                        <TextArea layoutX="44.0" layoutY="153.0" prefHeight="125.0" prefWidth="450.0" />
+                        <TextArea layoutX="44.0" layoutY="153.0" prefHeight="125.0" prefWidth="450.0" wrapText="true" />
                         <ToggleButton id="btnAsistencia" layoutX="581.0" layoutY="154.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" />
                         <Label layoutX="611.0" layoutY="160.0" text="%lbAsistencia">
                            <padding>
@@ -103,20 +103,20 @@
                         <Label layoutX="14.0" layoutY="-1.0" styleClass="lbTitulosTutoria" text="%lbReportarProblema" />
                         <ListView layoutX="20.0" layoutY="51.0" prefHeight="125.0" prefWidth="300.0" />
                         <ListView layoutX="340.0" layoutY="51.0" prefHeight="125.0" prefWidth="300.0" />
-                        <Label layoutX="20.0" layoutY="30.0" prefWidth="200.0" styleClass="lbTituloLista" text="%lbEE" />
+                        <Label layoutX="20.0" layoutY="30.0" prefWidth="200.0" styleClass="lbTituloLista" text="%lbExEd" />
                         <Label layoutX="340.0" layoutY="30.0" prefWidth="200.0" styleClass="lbTituloLista" text="%lbDeptoServ" />
-                        <TextArea layoutX="660.0" layoutY="76.0" prefHeight="100.0" prefWidth="300.0" />
+                        <TextArea layoutX="660.0" layoutY="76.0" prefHeight="100.0" prefWidth="300.0" wrapText="true" />
                         <Label layoutX="660.0" layoutY="59.0" text="%lbComentarios" />
-                        <Button layoutX="987.0" layoutY="18.0" mnemonicParsing="false" styleClass="btnTutoria" text="%btnAgregarProblema" />
-                        <Label layoutX="987.0" layoutY="54.0" prefWidth="100.0" text="%lbDescripcionProblema" />
-                        <TextField layoutX="1087.0" layoutY="50.0" prefWidth="225.0" />
-                        <ComboBox layoutX="1087.0" layoutY="80.0" prefWidth="225.0" />
-                        <TextField layoutX="1087.0" layoutY="110.0" prefWidth="225.0" />
-                        <TextField layoutX="1087.0" layoutY="140.0" prefWidth="150.0" />
-                        <Label layoutX="987.0" layoutY="87.0" prefWidth="100.0" text="%lbTipoProblema" />
-                        <Label layoutX="987.0" layoutY="114.0" prefWidth="100.0" text="%lbEE" />
-                        <Label layoutX="987.0" layoutY="144.0" prefWidth="100.0" text="%lbProfesor" />
-                        <Button layoutX="1253.0" layoutY="140.0" mnemonicParsing="false" styleClass="btnTutoria" text="%btnGuardarProblema" />
+                        <Button fx:id="agregarProblema" layoutX="987.0" layoutY="18.0" mnemonicParsing="false" styleClass="btnTutoria" text="%btnAgregarProblema" />
+                        <Label fx:id="lbDesc" layoutX="987.0" layoutY="54.0" prefWidth="100.0" text="%lbDescripcionProblema" visible="false" />
+                        <TextField fx:id="descripcionProblema" layoutX="1087.0" layoutY="50.0" prefWidth="225.0" visible="false" />
+                        <ComboBox fx:id="tipoProblema" layoutX="1087.0" layoutY="80.0" prefWidth="225.0" visible="false" />
+                        <TextField fx:id="nombreProblema" layoutX="1087.0" layoutY="110.0" prefWidth="225.0" visible="false" />
+                        <TextField fx:id="profesorEE" layoutX="1087.0" layoutY="140.0" prefWidth="150.0" visible="false" />
+                        <Label fx:id="lbTipoP" layoutX="987.0" layoutY="87.0" prefWidth="100.0" text="%lbTipoProblema" visible="false" />
+                        <Label fx:id="lbNombreP" layoutX="987.0" layoutY="114.0" prefWidth="100.0" text="%lbEE" visible="false" />
+                        <Label fx:id="lbProfeP" layoutX="987.0" layoutY="144.0" prefWidth="100.0" text="%lbProfesor" visible="false" />
+                        <Button fx:id="guardarProblema" layoutX="1253.0" layoutY="140.0" mnemonicParsing="false" styleClass="btnTutoria" text="%btnGuardarProblema" visible="false" />
                      </children></Pane>
                </bottom>
             </BorderPane>
