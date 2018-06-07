@@ -9,16 +9,25 @@
 package controladores;
 
 import accesoDatos.clasesDAO.InicioSesionDao;
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import proyectosit.Usuario;
-import accesoDatos.clasesDAO.InicioSesionDao;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
+import proyectosit.Coordinador;
+import proyectosit.Tutor;
 
 public class InicioSesionController implements Initializable {
     
@@ -50,12 +59,18 @@ public class InicioSesionController implements Initializable {
         String nombreUsuario = this.nombreUsuario.getText();
         String passwordUsuario = this.passwordUsuario.getText();        
         if(validarCamposDeTexto(nombreUsuario, passwordUsuario) == true) {
-            Usuario usuario = new Usuario(nombreUsuario, passwordUsuario);
-            usuario = usuario.ingresarSistema();
-            if(usuario == null){
-                JOptionPane.showMessageDialog(null, rb.getString("msgErrorPassword"));
-            } else{
-                recuperarUsuario(usuario);                
+            try {
+                Usuario usuario = new Usuario(nombreUsuario, passwordUsuario);
+                usuario = usuario.ingresarSistema();
+                if(usuario == null){
+                    JOptionPane.showMessageDialog(null, rb.getString("msgErrorPassword"));
+                    this.passwordUsuario.clear();
+                } else{                
+                    recuperarUsuario(usuario);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(InicioSesionController.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, rb.getString("msgErrorDB"));
             }
         } else {
             JOptionPane.showMessageDialog(null, rb.getString("msgLoginCamposIncompletos"));
@@ -79,16 +94,65 @@ public class InicioSesionController implements Initializable {
      * Metodo que carga la interfaz de usuario de Coordinador o Tutor
      * dependiendo del tipo de usuario que ingrese.
      */
-    private void logIn() {
-        
+    private void logIn(int tipo, Usuario user) {
+        if(tipo == 1){
+            try {
+                MenuCoordinadorController.setUsuario((Coordinador) user);
+                Parent root = FXMLLoader.load(getClass().getResource("/interfacesGraficas/menuCoordinadorGUI.fxml"), rb);                                
+                
+                Stage stage = new Stage();                                                
+                Scene scene = new Scene(root);
+                
+                stage.setScene(scene);
+                stage.setResizable(false);
+                stage.setTitle(rb.getString("tituloG"));
+                stage.show();                
+                this.cerrar();
+            } catch (IOException ex) {
+                Logger.getLogger(InicioSesionController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            try {
+                TutoriaController.setUsuario((Tutor) user);
+                Parent root = FXMLLoader.load(getClass().getResource("/interfacesGraficas/tutoriaGUI.fxml"), rb);
+                
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                
+                stage.setScene(scene);                
+                stage.setMaximized(true);
+                stage.setResizable(false);
+                stage.setTitle(rb.getString("tituloG"));
+                stage.show();
+                this.cerrar();
+            } catch (IOException ex) {
+                Logger.getLogger(InicioSesionController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     
     /**
      * Método que recupera el usuario que ingresara al sistema
      * 
-     * @param idUsuario 
+     * @param usuario Parametro proporcionado por el método crearUsuario
      */
     private void recuperarUsuario(Usuario usuario){
-        
+        try {
+            InicioSesionDao isDao = new InicioSesionDao();
+            Usuario user = isDao.consultarUsuario(usuario.getIdUsuario(), usuario.getTipoUsuario());
+            if(user.toString().equals("Coordinador")){
+                logIn(1, user);
+            } else {
+                logIn(2, user);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(InicioSesionController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, rb.getString("msgErrorDB"));
+        }
+    }
+    
+    private void cerrar(){
+        Stage stage = (Stage) this.iniciarSesion.getScene().getWindow();
+        stage.close();
     }
 }

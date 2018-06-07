@@ -34,7 +34,7 @@
                               <Image url="@../imagenes/Logo%20SIT.png" />
                            </image>
                         </ImageView>
-                        <Label id="lbUsuario" layoutX="108.0" layoutY="32.0" text="Nombre de usuario" />
+                        <Label id="lbUsuario" fx:id="nombreUsuario" layoutX="108.0" layoutY="32.0" />
                         <Button id="btnSalir" layoutX="1235.0" layoutY="21.0" mnemonicParsing="false">
                            <graphic>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
@@ -59,8 +59,8 @@
                      <children>
                         <Label id="lbSeleccionarTutorado" layoutX="14.0" layoutY="-1.0" styleClass="lbTitulosTutoria" text="%lbSeleccionarTutorado" />
                         <Label layoutX="25.0" layoutY="41.0" prefHeight="17.0" prefWidth="50.0" text="%lbBuscar" />
-                        <TextField layoutX="75.0" layoutY="37.0" prefHeight="25.0" prefWidth="200.0" />
-                        <ListView layoutX="25.0" layoutY="91.0" prefHeight="190.0" prefWidth="250.0" />
+                        <TextField fx:id="buscarTutorado" layoutX="75.0" layoutY="37.0" prefHeight="25.0" prefWidth="200.0" />
+                        <ListView fx:id="tutorados" layoutX="25.0" layoutY="91.0" prefHeight="190.0" prefWidth="250.0" />
                         <Label id="lbTutorados" layoutX="25.0" layoutY="70.0" prefHeight="17.0" prefWidth="250.0" styleClass="lbTituloLista" text="%lbTutorados" />
                      </children></Pane>
                </left>

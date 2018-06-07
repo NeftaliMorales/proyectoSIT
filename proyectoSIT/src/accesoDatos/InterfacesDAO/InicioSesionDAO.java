@@ -8,10 +8,11 @@
  */
 package accesoDatos.InterfacesDAO;
 
+import java.sql.SQLException;
 import proyectosit.Usuario;
 
 public interface InicioSesionDAO {
 
-    public Usuario consultarUsuario(String nombreUsuario);
-    public Usuario consultarUsuario(int idUsuario, int tipoUsuarios);
+    public Usuario consultarUsuario(String nombreUsuario) throws SQLException;
+    public Usuario consultarUsuario(int idUsuario, int tipoUsuarios) throws SQLException;
 }

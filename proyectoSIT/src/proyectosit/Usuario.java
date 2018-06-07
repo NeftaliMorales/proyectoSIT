@@ -5,6 +5,7 @@
 package proyectosit;
 
 import accesoDatos.clasesDAO.InicioSesionDao;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class Usuario {
@@ -15,7 +16,21 @@ public class Usuario {
     private int tipoUsuario;
     protected String apellidoPaterno;
     protected String apellidoMaterno;
-    protected String nombres;
+    protected String nombre;
+
+    /**
+     * Constructor con los parametros heredados a las clases hijo.
+     * @param idUsuario
+     * @param apellidoPaterno
+     * @param apellidoMaterno
+     * @param nombre 
+     */
+    public Usuario(int idUsuario, String apellidoPaterno, String apellidoMaterno, String nombres) {
+        this.idUsuario = idUsuario;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.nombre = nombres;
+    }
     
     /**
      * Constructor con dos parametros de la clase Usuario.
@@ -54,7 +69,7 @@ public class Usuario {
      * InicioSesionDao para consultar en la base de datos al usuario.
      * @return 
      */
-    public Usuario ingresarSistema(){
+    public Usuario ingresarSistema() throws SQLException{
         InicioSesionDao isDao = new InicioSesionDao();
         Usuario usuario2 = isDao.consultarUsuario(this.nombreUsuario);
         if(this.password.equals(usuario2.getPassword())){
@@ -79,6 +94,18 @@ public class Usuario {
 
     public int getIdUsuario() {
         return idUsuario;
+    }
+
+    public String getApellidoPaterno() {
+        return apellidoPaterno;
+    }
+
+    public String getApellidoMaterno() {
+        return apellidoMaterno;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
     
 }

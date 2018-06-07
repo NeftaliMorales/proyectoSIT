@@ -35,7 +35,7 @@ public class ProyectoSIT extends Application {
         
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
-        primaryStage.setTitle(bundle.getString("tIniciarSesion"));
+        primaryStage.setTitle(bundle.getString("tituloG"));
         primaryStage.show();
     }
 

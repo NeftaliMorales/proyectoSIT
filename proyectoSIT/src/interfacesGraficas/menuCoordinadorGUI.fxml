@@ -23,7 +23,7 @@
                         <Image url="@../imagenes/Logo%20SIT.png" />
                      </image>
                   </ImageView>
-                  <Label id="lbUsuario" layoutX="173.0" layoutY="60.0" prefHeight="30.0" prefWidth="300.0" text="Nombre de usuario" />
+                  <Label id="lbUsuario" fx:id="nombreUsuario" layoutX="173.0" layoutY="60.0" prefHeight="30.0" />
                   <Button id="btnSalir" layoutX="695.0" layoutY="45.0" mnemonicParsing="false">
                      <graphic>
                         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
