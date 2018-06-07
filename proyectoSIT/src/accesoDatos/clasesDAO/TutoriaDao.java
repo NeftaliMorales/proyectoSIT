@@ -76,8 +76,8 @@ public class TutoriaDao implements TutoriaDAO{
         } else{
             sql="INSERT INTO `problema`(`tipoProblema`, `depto_servicio`, "
                     + "`descripcionProblema`, `numAlumnos`) VALUES "
-                    + "("+problema.getTipoProblema()+",'"+problema.getDepto_servicio()
-                    +"',"+problema.getDescripcion()+", 0)";
+                    + "("+problema.getTipoProblema()+",'"+problema.getDepto_servicio()+"'"
+                    + ",'"+problema.getDescripcion()+"', 0)";
         }
         boolean flag = conn.ejecutar(sql);
         conn.cerrar();
@@ -96,7 +96,7 @@ public class TutoriaDao implements TutoriaDAO{
         String sql = "SELECT * FROM `problema`";
         rs = conn.consultar(sql);
         Problema problema;
-        ArrayList<Problema> problemas = null;
+        ArrayList<Problema> problemas = new ArrayList<>();
         while(rs.next()){
             if(rs.getInt(2) == 0){
                 problema = new Problema(rs.getString(6), rs.getInt(2), rs.getString(4), rs.getString(5), rs.getInt(7));

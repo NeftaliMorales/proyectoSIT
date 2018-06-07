@@ -49,7 +49,8 @@ public class TutoriaController implements Initializable {
     private @FXML TextField nombreProblema;
     private @FXML TextField profesorEE;
     private @FXML Button guardarProblema;
-    
+    private @FXML ListView<Problema> problemasEE;
+    private @FXML ListView<Problema> problemasDS;
     private @FXML Label lbDesc;
     private @FXML Label lbTipoP;
     private @FXML Label lbNombreP;
@@ -63,6 +64,7 @@ public class TutoriaController implements Initializable {
                 tutor.getApellidoMaterno());
         
         llenarListaTutorados();
+        llenarListasProblemas();
         
         this.tipoProblema.getItems().addAll("Experiencia Educativa", "Depto/Servicio");
         
@@ -132,6 +134,33 @@ public class TutoriaController implements Initializable {
     }
     
     /**
+     * Método que llena las listas de problemas en la interfaz grafica
+     */
+    private void llenarListasProblemas(){
+        try {
+            problemasDS.getItems().clear();
+            problemasEE.getItems().clear();
+            ArrayList<Problema> problemasList;
+            TutoriaDao tDao = new TutoriaDao();
+            problemasList = tDao.recuperarProblemas();
+            if(problemasList == null){
+                
+            } else {
+                for(int i = 0; i < problemasList.size(); i++){
+                    if(problemasList.get(i).getTipoProblema() == 0){
+                        problemasEE.getItems().add(problemasList.get(i));
+                    } else {
+                        problemasDS.getItems().add(problemasList.get(i));
+                    }
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TutoriaController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, rb.getString("msgErroDB"));
+        }
+    }
+    
+    /**
      * Método que muestra la información del tutorado que se selecciono.
      * @param tutorado Tutorado seleccionado de la lista tutorados.
      */
@@ -148,6 +177,17 @@ public class TutoriaController implements Initializable {
         lbTipoP.setVisible(true);
         descripcionProblema.setVisible(true);
         tipoProblema.setVisible(true);
+    }
+    private void ocultarCampos(){
+        lbDesc.setVisible(false);
+        lbTipoP.setVisible(false);
+        descripcionProblema.setVisible(false);
+        tipoProblema.setVisible(false);
+        lbNombreP.setVisible(false);
+        nombreProblema.setVisible(false);
+        lbProfeP.setVisible(false);
+        profesorEE.setVisible(false);
+        guardarProblema.setVisible(false);
     }
     
     /**
@@ -189,6 +229,8 @@ public class TutoriaController implements Initializable {
                 JOptionPane.showMessageDialog(null, rb.getString("msgCompletarDatos"));
             }
         }
+        llenarListasProblemas();
+        ocultarCampos();
     }
     
     private boolean validarTextosProblema(String desc, String nomb, String prof){

@@ -64,4 +64,8 @@ public class Problema {
     public int getNumAlumnosReportan() {
         return numAlumnosReportan;
     }
+    
+    public String toString(){
+        return descripcion;
+    }
 }

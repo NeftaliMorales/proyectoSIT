@@ -43,6 +43,8 @@ public class InicioSesionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.rb = rb;
+        this.nombreUsuario.setText("NeftaliM");
+        this.passwordUsuario.setText("123456");
         iniciarSesion.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -55,7 +57,7 @@ public class InicioSesionController implements Initializable {
      * Este método crea el objeto Usuario a partir de los datos que se ingresen
      * por el usuario del sistema en la interfaz grafica inicioSesionGUI
      */
-    public void crearUsuario() {        
+    public void crearUsuario() {
         String nombreUsuario = this.nombreUsuario.getText();
         String passwordUsuario = this.passwordUsuario.getText();        
         if(validarCamposDeTexto(nombreUsuario, passwordUsuario) == true) {
