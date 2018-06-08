@@ -67,7 +67,7 @@
                      <FlowPane.margin>
                         <Insets left="30.0" top="-15.0" />
                      </FlowPane.margin></Button>
-                  <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="220.0" styleClass="btnMenuCoordinador" text="%btnMenuAsignar">
+                  <Button fx:id="asignarTutorados" mnemonicParsing="false" prefHeight="70.0" prefWidth="220.0" styleClass="btnMenuCoordinador" text="%btnMenuAsignar">
                      <FlowPane.margin>
                         <Insets left="30.0" top="-15.0" />
                      </FlowPane.margin></Button>

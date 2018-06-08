@@ -40,6 +40,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
+                        <Label id="lbUsuario" fx:id="nombreUsuario" layoutX="124.0" layoutY="35.0" />
                      </children>
                   </Pane>
                </top>
@@ -53,12 +54,12 @@
                <center>
                   <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <ListView layoutX="59.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" />
-                        <ListView layoutX="289.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" />
-                        <Button id="btnAsignar" layoutX="518.0" layoutY="126.0" mnemonicParsing="false" text="%btnAsignar" />
+                        <ListView fx:id="tutorados" layoutX="59.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" />
+                        <ListView fx:id="tutores" layoutX="289.0" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" />
+                        <Button id="btnAsignar" fx:id="asignar" layoutX="518.0" layoutY="126.0" mnemonicParsing="false" text="%btnAsignar" />
                         <Label layoutX="59.0" layoutY="19.0" prefHeight="17.0" prefWidth="200.0" styleClass="lbTituloLista" text="%lbTutoradosAs" />
                         <Label layoutX="289.0" layoutY="19.0" prefHeight="17.0" prefWidth="200.0" styleClass="lbTituloLista" text="%lbTutoresAs" />
-                        <CheckBox layoutX="59.0" layoutY="244.0" mnemonicParsing="false" text="%chkSeleccionarTodos" />
+                        <CheckBox fx:id="seleccionarTodos" layoutX="59.0" layoutY="244.0" mnemonicParsing="false" text="%chkSeleccionarTodos" />
                      </children></Pane>
                </center>
             </BorderPane>

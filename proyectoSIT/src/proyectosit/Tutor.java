@@ -39,6 +39,6 @@ public class Tutor extends Usuario{
     
     @Override
     public String toString(){
-        return "Tutor";
+        return nombre + " " +apellidoPaterno+" "+apellidoMaterno;
     }
 }

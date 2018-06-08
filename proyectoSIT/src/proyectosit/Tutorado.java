@@ -15,7 +15,8 @@ public class Tutorado {
     private int estado; //0 no asignado a Tuto //1 asignado a Tutor
     private Tutor tutor;
 
-    public Tutorado(String matricula, String nombres, String apellidoPaterno, String apellidoMaterno, String carrera, int semestre, int estado) {
+    public Tutorado(String matricula, String nombres, String apellidoPaterno, 
+            String apellidoMaterno, String carrera, int semestre, int estado) {
         this.matricula = matricula;
         this.nombres = nombres;
         this.apellidoPaterno = apellidoPaterno;
@@ -31,6 +32,7 @@ public class Tutorado {
     }
     
     public boolean asignarTutor(Tutor tutor){
+        
         return true;
     }
     
@@ -65,6 +67,12 @@ public class Tutorado {
     public int getSemestre() {
         return semestre;
     }
-    
-    
+
+    public Tutor getTutor() {
+        return tutor;
+    }
+
+    public void setTutor(Tutor tutor) {
+        this.tutor = tutor;
+    }
 }
