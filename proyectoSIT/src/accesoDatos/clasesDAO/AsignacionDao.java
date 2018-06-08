@@ -50,4 +50,19 @@ public class AsignacionDao implements AsignacionDAO{
         conn.cerrar();
         return tutorados;
     }
+
+    @Override
+    public boolean guardarPeriodo(String periodo, String matricula, int idTutor) throws SQLException {
+        Conexion conn = new Conexion();
+        Conexion conn2 = new Conexion();
+        boolean flag = false;
+        String sql = "INSERT INTO `periodo`(`periodo`, `matriculaTutorado`, `idTutor`) "
+                + "VALUES ('"+periodo+"','"+matricula+"',"+idTutor+")";
+        String sql2 = "UPDATE `tutorado` SET `estado` = '1' WHERE `tutorado`.`matricula` = '"+matricula+"';";
+        conn.ejecutar(sql);
+        flag = conn2.ejecutar(sql2);
+        conn.cerrar();
+        conn2.cerrar();
+        return flag;
+    }
 }

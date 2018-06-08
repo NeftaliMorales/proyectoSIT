@@ -17,5 +17,5 @@ public interface AsignacionDAO {
     
     public ArrayList<Tutor> recuperarTutores() throws SQLException;
     public ArrayList<Tutorado> recuperarTutorados() throws SQLException;
-    
+    public boolean guardarPeriodo(String periodo, String matricula, int idTutor) throws SQLException;
 }

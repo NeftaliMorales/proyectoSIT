@@ -4,6 +4,9 @@
  */
 package proyectosit;
 
+import accesoDatos.clasesDAO.AsignacionDao;
+import java.sql.SQLException;
+
 public class Tutorado {
     
     private String matricula;
@@ -31,9 +34,9 @@ public class Tutorado {
         return nombres + " " + apellidoPaterno + " " + apellidoMaterno;
     }
     
-    public boolean asignarTutor(Tutor tutor){
-        
-        return true;
+    public boolean asignarTutor(Tutor tutor) throws SQLException{
+        AsignacionDao aDao = new AsignacionDao();
+        return aDao.guardarPeriodo("02/2018 - 06/2018", matricula, tutor.getIdUsuario());
     }
     
     public boolean reasignarTutor(Tutor tutor){

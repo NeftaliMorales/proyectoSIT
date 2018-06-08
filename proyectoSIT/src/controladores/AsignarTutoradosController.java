@@ -86,19 +86,36 @@ public class AsignarTutoradosController implements Initializable {
         asignar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if(tutorSeleccionado == null || tutoradosSeleccionados == null){
-                    JOptionPane.showMessageDialog(null, rb.getString("msgErrorSeleccionAsignacion"));
-                } else {
-                    for(int i = 0; i < tutoradosSeleccionados.size(); i++){
-                        Tutorado tutoradoSeleccionado = tutoradosSeleccionados.get(i);
-                        tutoradoSeleccionado.asignarTutor(tutorSeleccionado);
-                        System.err.println(tutoradoSeleccionado.getNombres());
-                        System.err.println(tutorSeleccionado.getNombre());
-                    }
-                }
+                asignar();
             }
         });
     }    
+    
+    /**
+     * Método que valida que se seleccione un Tutor y al menos un Tutorado. 
+     * Invoca el metodo asignarTutor del Tutorado(s) seleccionado(s).
+     * Actualiza la lista de Tutorados que aun no se asignan.
+     */
+    private void asignar(){
+        if(tutorSeleccionado == null || tutoradosSeleccionados == null || tutoradosSeleccionados.isEmpty()){
+                    JOptionPane.showMessageDialog(null, rb.getString("msgErrorSeleccionAsignacion"));
+                } else {
+                    boolean flag = false;
+                    for(int i = 0; i < tutoradosSeleccionados.size(); i++){
+                        try {
+                            Tutorado tutoradoSeleccionado = tutoradosSeleccionados.get(i);
+                            flag = tutoradoSeleccionado.asignarTutor(tutorSeleccionado);                            
+                        } catch (SQLException ex) {
+                            Logger.getLogger(AsignarTutoradosController.class.getName()).log(Level.SEVERE, null, ex);
+                            JOptionPane.showMessageDialog(null, rb.getString("msgErrorDB"));
+                        }
+                    }
+                    if(flag == true) { 
+                        JOptionPane.showMessageDialog(null, rb.getString("msgAsignacionExitosa"));
+                        llenarListaTutorados();
+                    }
+                }
+    }
     
     /**
      * Metodo que se comunica con la clase DAO asignacionDao para recuperar los
@@ -121,6 +138,7 @@ public class AsignarTutoradosController implements Initializable {
      * Tutorados de la base de datos y llenar la lista tutorados
      */
     private void llenarListaTutorados(){
+        tutorados.getItems().clear();
         try {
             AsignacionDao aDao = new AsignacionDao();
             tutoradosList = aDao.recuperarTutorados();
