@@ -22,7 +22,9 @@ public class Conexion {
         
         conectar();
     }
-    //CONECTAR BASE DE DATOS
+    /**
+     * Método que realiza la conexión con la DB para la tecnologia SQL.
+     */
     public void conectar(){
         try{
             Class.forName("com.mysql.jdbc.Driver");//DRIVER
@@ -36,7 +38,9 @@ public class Conexion {
             System.err.println(ex);//ERROR
         }
     }
-    //CERRAR LA CONEXION
+    /**
+     * Método que cierra la conexion con la BD.
+     */
     public void cerrar(){
         if(cnx != null){
             try {
@@ -47,7 +51,15 @@ public class Conexion {
             }
         }
     }
-    //EJECUTAR SQL (UPDATE, INSERT, DELETE)
+    /**
+     * Método que se usa para ejecutar instrucciones sql como Insert, Delete y
+     * Update
+     * @param sql
+     * Consulta sql proporcionada por los metodos de clases DAO que utilizan a 
+     * la clase Conexion
+     * @return flag
+     * Valor boolean que indica si se realizo la instrucción sql
+     */
     public boolean ejecutar(String sql){
         boolean flag;
         try{
@@ -61,7 +73,15 @@ public class Conexion {
         }
         return flag;
     }
-    //CONSULTAS (SELECT, JOIN)
+
+    /**
+     * Método que realiza las instrucciones sql Select y Join.
+     * @param sql
+     * Consulta sql proporcionada por los metodos de clases DAO que utilizan a 
+     * la clase Conexion
+     * @return res
+     * Set de Resultados con todos los registros que se recuperaron de la DB.
+     */
     public ResultSet consultar(String sql){
         try{
             res = sentencia.executeQuery(sql);

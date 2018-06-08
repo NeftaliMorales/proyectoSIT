@@ -1,6 +1,6 @@
 /**
- * Interfaz de acceso a datos Asignacion, incluye métodos de conexión para las
- * clases Tutorado y Tutor del modulo Asignación de Tutorados.
+ * Interfaz de acceso a datos Asignacion, incluye la definición métodos de 
+ * conexión para las clases Tutorado y Tutor del modulo Asignación de Tutorados.
  *
  * @author edson
  * @since 07/06/18

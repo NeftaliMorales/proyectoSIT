@@ -26,9 +26,10 @@ public class TutoriaDao implements TutoriaDAO{
     /**
      * Método que recupera los tutorados correspondientes al tutor que ingreso
      * al sistema
-     * @param idTutor Proporcionado por el método llenarListaTutorados() de la
-     *                  interface Tutoria
-     * @return Regresa un ArrayList de Tutorados
+     * @param idTutor 
+     * Proporcionado por el método llenarListaTutorados() de la interface Tutoria
+     * @return tutorados
+     * Regresa un ArrayList de Tutorados
      * @throws SQLException 
      */
     @Override
@@ -60,9 +61,10 @@ public class TutoriaDao implements TutoriaDAO{
 
     /**
      * Método que guarda un Problema en la base de datos
-     * @param problema Proporcionado por el método guardarProblema de la
-     *          interface Tutoria
-     * @return flag Valor boolean que indica si se realizo la orden
+     * @param problema 
+     * Proporcionado por el método guardarProblema de la interface Tutoria
+     * @return flag
+     * Valor boolean que indica si se realizo la orden
      * @throws SQLException 
      */
     @Override
@@ -87,7 +89,8 @@ public class TutoriaDao implements TutoriaDAO{
 
     /**
      * Método que recupera los Problemas registrados en la DB
-     * @return problemas ArrayList que contiene los Problemas encontrados
+     * @return
+     * problemas ArrayList que contiene los Problemas encontrados
      * @throws SQLException 
      */
     @Override
@@ -112,7 +115,14 @@ public class TutoriaDao implements TutoriaDAO{
     /**
      * Método que guarda la sesion de Tutoria en la DB
      * @param sesion
-     * @return
+     * proporcionado por el metodo registrarSesion de la clase Tutoria
+     * @param matricula
+     * proporcionado por el metodo registrarSesion de la clase Tutoria
+     * @param idTutor
+     * proporcionado por el metodo registrarSesion de la clase Tutoria
+     * @return flag
+     * Valor booleano que indica si la sesion fue registrada correctamente en la
+     * DB
      * @throws SQLException 
      */
     @Override
@@ -144,7 +154,13 @@ public class TutoriaDao implements TutoriaDAO{
         conn.cerrar();
         return flag;
     }
-    
+    /**
+     * Método usado por el método guardarSesionTutoria.
+     * @param matricula
+     * @param idTutor
+     * @return
+     * @throws SQLException 
+     */
     private int obtenerIdPeriodo(String matricula, int idTutor) throws SQLException{
         Conexion conn = new Conexion();
         ResultSet rs;
@@ -156,6 +172,12 @@ public class TutoriaDao implements TutoriaDAO{
         return idPeriodo;
     }
     
+    /**
+     * Método que obtiene el valor maximo del campo idTutoria de la DB
+     * @return id
+     * Valor entero que representa el id Maximo de las Tutorias registradas.
+     * @throws SQLException 
+     */
     public int obtenerId() throws SQLException{
         Conexion conn = new Conexion();
         ResultSet rs;

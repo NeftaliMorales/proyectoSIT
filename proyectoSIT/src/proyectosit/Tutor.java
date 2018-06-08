@@ -36,7 +36,11 @@ public class Tutor extends Usuario{
         super(usuario, password);
     }
     
-    
+    /**
+     * Sobreescritura del método toString
+     * @return 
+     * retorna un valor String con el nombre completo del Tutor
+     */
     @Override
     public String toString(){
         return nombre + " " +apellidoPaterno+" "+apellidoMaterno;

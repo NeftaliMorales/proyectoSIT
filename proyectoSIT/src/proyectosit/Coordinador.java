@@ -36,6 +36,11 @@ public class Coordinador extends Usuario{
         return true;
     }
     
+    /**
+     * Sobreescritura del método toString
+     * @return 
+     * Retorna un valor String correspondiente al nombre completo del Coordinador
+     */
     @Override
     public String toString(){
         return "Coordinador";

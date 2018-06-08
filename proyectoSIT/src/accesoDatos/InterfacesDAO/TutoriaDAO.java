@@ -1,6 +1,6 @@
 /**
  * Interfaz de acceso a datos Tutoria, incluye métodos de conexión para las
- * clases Tutotado, Tutoria y Problema del modulo Tutoria.
+ * clases Tutorado, Tutoria y Problema del modulo Tutoria.
  *
  * @author edson
  * @since 07/06/18

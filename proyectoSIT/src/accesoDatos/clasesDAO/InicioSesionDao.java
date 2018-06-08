@@ -21,6 +21,14 @@ public class InicioSesionDao implements InicioSesionDAO{
     public InicioSesionDao() {
     }
     
+    /**
+     * Método que realiza una busqueda de Usuario en la BD
+     * @param user
+     * Parametro proporcionado por el método ingresarSistema de la clase Usuario.
+     * @return
+     * Retorna un Usuario, resultado de la busqueda.
+     * @throws SQLException 
+     */
     @Override
     public Usuario consultarUsuario(String user) throws SQLException{
         Usuario usuario;
@@ -34,6 +42,17 @@ public class InicioSesionDao implements InicioSesionDAO{
         return usuario;
     }
 
+    /**
+     * Método que consulta el Usuario segun su tipo, ya sea Coordinador o Tutor.
+     * @param idUsuario
+     * Proporcionado por el método recuperarUsuario de la interfaz InicioSesion.
+     * @param tipoUsuario
+     * Proporcionado por el método recuperarUsuario de la interfaz InicioSesion.
+     * @return usuario
+     * Retorna el Usuario del tipo que corresponde (Coordinador/Tutor) que 
+     * ingreso al sistema.
+     * @throws SQLException 
+     */
     @Override
     public Usuario consultarUsuario(int idUsuario, int tipoUsuario) throws SQLException{
         Usuario usuario = null;
