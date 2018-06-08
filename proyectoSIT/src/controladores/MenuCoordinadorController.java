@@ -30,6 +30,7 @@ public class MenuCoordinadorController implements Initializable {
     
     private @FXML Label nombreUsuario;
     private @FXML Button asignarTutorados;
+    private @FXML Button salir;
     
     @Override
     public void initialize(URL location, ResourceBundle rb) {        
@@ -41,6 +42,26 @@ public class MenuCoordinadorController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 cargarInterfazAsignarTutorados();
+            }
+        });
+        
+        salir.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    Parent root = FXMLLoader.load(getClass().getResource("/interfacesGraficas/inicioSesionGUI.fxml"), rb);
+                    
+                    Stage stage = new Stage();
+                    Scene scene = new Scene(root);
+                    
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.setTitle(rb.getString("tituloG"));
+                    stage.show();
+                    cerrar();
+                } catch (IOException ex) {
+                    Logger.getLogger(MenuCoordinadorController.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

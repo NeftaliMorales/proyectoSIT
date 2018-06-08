@@ -7,6 +7,7 @@
 package controladores;
 
 import accesoDatos.clasesDAO.TutoriaDao;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -16,9 +17,13 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import proyectosit.Problema;
 import proyectosit.Tutor;
@@ -33,6 +38,8 @@ public class TutoriaController implements Initializable {
     
     private Tutoria sesion;
     private Tutorado tutoradoSeleccionado;
+    
+    private @FXML Button salir;
     
     //Seleccionar Tutorado
     private @FXML Label nombreUsuario;
@@ -173,6 +180,26 @@ public class TutoriaController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 guardarProblema();
+            }
+        });
+        
+        salir.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    Parent root = FXMLLoader.load(getClass().getResource("/interfacesGraficas/inicioSesionGUI.fxml"), rb);
+                    
+                    Stage stage = new Stage();
+                    Scene scene = new Scene(root);
+                    
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.setTitle(rb.getString("tituloG"));
+                    stage.show();
+                    cerrar();
+                } catch (IOException ex) {
+                    Logger.getLogger(TutoriaController.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }    
@@ -317,5 +344,9 @@ public class TutoriaController implements Initializable {
     
     private void crearSesion(){
         sesion = new Tutoria();
+    }
+    private void cerrar(){
+        Stage stage = (Stage) this.salir.getScene().getWindow();
+        stage.close();
     }
 }

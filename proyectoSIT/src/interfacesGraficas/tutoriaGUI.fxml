@@ -35,7 +35,7 @@
                            </image>
                         </ImageView>
                         <Label id="lbUsuario" fx:id="nombreUsuario" layoutX="108.0" layoutY="32.0" />
-                        <Button id="btnSalir" layoutX="1235.0" layoutY="21.0" mnemonicParsing="false">
+                        <Button id="btnSalir" fx:id="salir" layoutX="1235.0" layoutY="21.0" mnemonicParsing="false">
                            <graphic>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

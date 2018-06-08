@@ -10,6 +10,7 @@
 package controladores;
 
 import accesoDatos.clasesDAO.AsignacionDao;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -20,11 +21,14 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import proyectosit.Coordinador;
 import proyectosit.Tutor;
@@ -41,6 +45,7 @@ public class AsignarTutoradosController implements Initializable {
     private @FXML ListView<Tutor> tutores;
     private @FXML CheckBox seleccionarTodos;
     private @FXML Button asignar;
+    private @FXML Button salir;
     
     private ArrayList<Tutorado> tutoradosList;
     private ArrayList<Tutor> tutoresList;
@@ -87,6 +92,25 @@ public class AsignarTutoradosController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 asignar();
+            }
+        });
+        salir.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    Parent root = FXMLLoader.load(getClass().getResource("/interfacesGraficas/menuCoordinadorGUI.fxml"), rb);
+                    
+                    Stage stage = new Stage();
+                    Scene scene = new Scene(root);
+                    
+                    stage.setScene(scene);
+                    stage.setResizable(false);
+                    stage.setTitle(rb.getString("tituloG"));
+                    stage.show();
+                    cerrar();
+                } catch (IOException ex) {
+                    Logger.getLogger(AsignarTutoradosController.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }    
@@ -156,5 +180,10 @@ public class AsignarTutoradosController implements Initializable {
      */
     public static void setUsuario(Coordinador coordinador){
         AsignarTutoradosController.coordinador = coordinador;
+    }
+    
+    private void cerrar(){
+        Stage stage = (Stage) this.salir.getScene().getWindow();
+        stage.close();
     }
 }

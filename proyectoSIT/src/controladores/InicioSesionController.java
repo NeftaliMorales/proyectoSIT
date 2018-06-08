@@ -43,8 +43,6 @@ public class InicioSesionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.rb = rb;
-        this.nombreUsuario.setText("NeftaliM");
-        this.passwordUsuario.setText("123456");
         iniciarSesion.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {

@@ -31,7 +31,7 @@
                               <Image url="@../imagenes/Logo%20SIT.png" />
                            </image>
                         </ImageView>
-                        <Button id="btnSalir" layoutX="500.0" layoutY="21.0" mnemonicParsing="false">
+                        <Button id="btnSalir" fx:id="salir" layoutX="500.0" layoutY="21.0" mnemonicParsing="false">
                            <graphic>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
