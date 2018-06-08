@@ -84,14 +84,14 @@
                            </children>
                         </Pane>
                         <Label layoutX="44.0" layoutY="136.0" text="%lbComentarios" />
-                        <TextArea layoutX="44.0" layoutY="153.0" prefHeight="125.0" prefWidth="450.0" wrapText="true" />
-                        <ToggleButton id="btnAsistencia" layoutX="581.0" layoutY="154.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" />
+                        <TextArea fx:id="comentariosSesion" layoutX="44.0" layoutY="153.0" prefHeight="125.0" prefWidth="450.0" wrapText="true" />
+                        <ToggleButton id="btnAsistencia" fx:id="asistencia" disable="true" layoutX="581.0" layoutY="154.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" />
                         <Label layoutX="611.0" layoutY="160.0" text="%lbAsistencia">
                            <padding>
                               <Insets left="5.0" />
                            </padding>
                         </Label>
-                        <Button layoutX="902.0" layoutY="253.0" mnemonicParsing="false" styleClass="btnTutoria" text="%btnRegistrarSesion" />
+                        <Button fx:id="registrarSesion" disable="true" layoutX="902.0" layoutY="253.0" mnemonicParsing="false" styleClass="btnTutoria" text="%btnRegistrarSesion" />
                      </children></Pane>
                </center>
                <bottom>
@@ -101,8 +101,8 @@
                      </BorderPane.margin>
                      <children>
                         <Label layoutX="14.0" layoutY="-1.0" styleClass="lbTitulosTutoria" text="%lbReportarProblema" />
-                        <ListView fx:id="problemasEE" layoutX="20.0" layoutY="51.0" prefHeight="125.0" prefWidth="300.0" />
-                        <ListView fx:id="problemasDS" layoutX="340.0" layoutY="51.0" prefHeight="125.0" prefWidth="300.0" />
+                        <ListView fx:id="problemasEE" disable="true" layoutX="20.0" layoutY="51.0" prefHeight="125.0" prefWidth="300.0" />
+                        <ListView fx:id="problemasDS" disable="true" layoutX="340.0" layoutY="51.0" prefHeight="125.0" prefWidth="300.0" />
                         <Label layoutX="20.0" layoutY="30.0" prefWidth="200.0" styleClass="lbTituloLista" text="%lbExEd" />
                         <Label layoutX="340.0" layoutY="30.0" prefWidth="200.0" styleClass="lbTituloLista" text="%lbDeptoServ" />
                         <TextArea layoutX="660.0" layoutY="76.0" prefHeight="100.0" prefWidth="300.0" wrapText="true" />

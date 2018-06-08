@@ -23,12 +23,16 @@ import javax.swing.JOptionPane;
 import proyectosit.Problema;
 import proyectosit.Tutor;
 import proyectosit.Tutorado;
+import proyectosit.Tutoria;
 
 public class TutoriaController implements Initializable {
 
     private ResourceBundle rb;
     
     private static Tutor tutor;
+    
+    private Tutoria sesion;
+    private Tutorado tutoradoSeleccionado;
     
     //Seleccionar Tutorado
     private @FXML Label nombreUsuario;
@@ -40,6 +44,10 @@ public class TutoriaController implements Initializable {
     private @FXML Label matriculaTutorado;
     private @FXML Label carreraTutorado;
     private @FXML Label semestreTutorado;
+    private @FXML ToggleButton asistencia;
+    private @FXML TextArea comentariosSesion;
+    private @FXML Button registrarSesion;
+    
 
     
     //Problema
@@ -71,7 +79,65 @@ public class TutoriaController implements Initializable {
         tutorados.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                mostrarInfo(tutorados.getSelectionModel().getSelectedItem());
+                tutoradoSeleccionado = tutorados.getSelectionModel().getSelectedItem();
+                mostrarInfo(tutoradoSeleccionado);
+                asistencia.setDisable(false);
+                asistencia.setSelected(false);
+            }
+        });
+        
+        asistencia.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if(asistencia.isSelected() == true){
+                    asistencia.setDisable(true);
+                    tutorados.setDisable(true);
+                    problemasDS.setDisable(false);
+                    problemasEE.setDisable(false);
+                    registrarSesion.setDisable(false);
+                    crearSesion();
+                }
+            }
+        });
+        
+        registrarSesion.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                String comentSesion = comentariosSesion.getText();
+                if(comentSesion.equals("")){
+                    JOptionPane.showMessageDialog(null, rb.getString("msgComentarioVacio"));
+                } else {
+                    sesion.setComentarios(comentSesion);
+                    try {
+                        sesion.registrarSesion(tutoradoSeleccionado.getMatricula(), tutor.getIdUsuario());
+                    } catch (SQLException ex) {
+                        Logger.getLogger(TutoriaController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        });
+        
+        problemasEE.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Problema problema;
+                problema = problemasEE.getSelectionModel().getSelectedItem();
+                int reportar = JOptionPane.showConfirmDialog(null, rb.getString("msgReportarProblema"));
+                if(reportar == 0){                    
+                    sesion.setProblema(problema.getIdProblema());
+                }
+            }
+        });
+        
+        problemasDS.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Problema problema;
+                problema = problemasDS.getSelectionModel().getSelectedItem();
+                int reportar = JOptionPane.showConfirmDialog(null, rb.getString("msgReportarProblema"));
+                if(reportar == 0){                    
+                    sesion.setProblema(problema.getIdProblema());
+                }                
             }
         });
         
@@ -192,6 +258,7 @@ public class TutoriaController implements Initializable {
     
     /**
      * Método que registra un nuevo problema en la base de datos.
+     * Valida que los campos sean correctos.
      */
     private void guardarProblema(){
         String descripcion = descripcionProblema.getText();
@@ -248,4 +315,7 @@ public class TutoriaController implements Initializable {
         TutoriaController.tutor = tutor;
     }
     
+    private void crearSesion(){
+        sesion = new Tutoria();
+    }
 }

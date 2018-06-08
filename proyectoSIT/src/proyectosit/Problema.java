@@ -5,6 +5,7 @@
 package proyectosit;
 
 public class Problema {
+    private int idProblema;
     private String descripcion;
     private int tipoProblema;//0 experiencia educativa  //1 depto/servicio
     private String depto_servicio;
@@ -25,14 +26,18 @@ public class Problema {
         this.profesorEE = profesorEE;
     }
 
-    public Problema(String descripcion, int tipoProblema, String depto_servicio, int numAlumnosReportan) {
+    public Problema(int id, String descripcion, int tipoProblema, String depto_servicio, 
+            int numAlumnosReportan) {
+        this.idProblema = id;
         this.descripcion = descripcion;
         this.tipoProblema = tipoProblema;
         this.depto_servicio = depto_servicio;
         this.numAlumnosReportan = numAlumnosReportan;
     }
 
-    public Problema(String descripcion, int tipoProblema, String experienciaEducativa, String profesorEE, int numAlumnosReportan) {
+    public Problema(int id, String descripcion, int tipoProblema, String experienciaEducativa, 
+            String profesorEE, int numAlumnosReportan) {
+        this.idProblema = id;
         this.descripcion = descripcion;
         this.tipoProblema = tipoProblema;
         this.experienciaEducativa = experienciaEducativa;
@@ -63,6 +68,10 @@ public class Problema {
 
     public int getNumAlumnosReportan() {
         return numAlumnosReportan;
+    }
+
+    public int getIdProblema() {
+        return idProblema;
     }
     
     public String toString(){
