@@ -37,7 +37,7 @@
                   <PasswordField fx:id="passwordUsuario" layoutX="25.0" layoutY="230.0" prefWidth="200.0" />
                   <Label layoutX="25.0" layoutY="120.0" prefHeight="25.0" prefWidth="250.0" styleClass="lbInicioSesion" text="%lbNombreUsuario" />
                   <Label id="lbInicioSesion" layoutX="25.0" layoutY="80.0" prefHeight="25.0" prefWidth="250.0" text="%lbInicioSesion" />
-                  <Button id="btnIngresar" fx:id="iniciarSesion" layoutX="80.0" layoutY="280.0" mnemonicParsing="false" text="Button" />
+                  <Button id="btnIngresar" fx:id="iniciarSesion" layoutX="80.0" layoutY="280.0" mnemonicParsing="false" text="%btnIngresar" />
                </children>
             </Pane>
          </center>
