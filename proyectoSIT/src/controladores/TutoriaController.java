@@ -84,9 +84,10 @@ public class TutoriaController implements Initializable {
         
         this.tipoProblema.getItems().addAll("Experiencia Educativa", "Depto/Servicio");
         
-        buscarTutorado.setOnKeyPressed(new EventHandler<KeyEvent>() {
+        buscarTutorado.setOnKeyReleased(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
+                llenarListaTutoradosFiltrada();
             }
         });
         tutorados.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -108,6 +109,7 @@ public class TutoriaController implements Initializable {
                     problemasDS.setDisable(false);
                     problemasEE.setDisable(false);
                     registrarSesion.setDisable(false);
+                    buscarTutorado.setDisable(true);
                     crearSesion();
                 }
             }
@@ -224,6 +226,28 @@ public class TutoriaController implements Initializable {
             } else {
                 for(int i = 0; i < tutoradosList.size(); i++){
                     tutorados.getItems().add(tutoradosList.get(i));
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TutoriaController.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, rb.getString("msgErroDB"));
+        }
+    }
+    
+    public void llenarListaTutoradosFiltrada(){
+        try {
+            tutorados.getItems().clear();
+            ArrayList<Tutorado> tutoradosList;
+            TutoriaDao tDao = new TutoriaDao();
+            tutoradosList = tDao.recuperarTutorados(tutor.getIdUsuario());
+            if(tutoradosList == null){
+                JOptionPane.showMessageDialog(null, rb.getString("msgTutoradosNull"));
+            } else {
+                for(int i = 0; i < tutoradosList.size(); i++){
+                    String filtro = buscarTutorado.getText();
+                    if(tutoradosList.get(i).getNombres().equals(filtro)){
+                        tutorados.getItems().add(tutoradosList.get(i));
+                    }
                 }
             }
         } catch (SQLException ex) {
