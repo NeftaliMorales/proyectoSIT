@@ -70,6 +70,9 @@ public class InicioSesionController implements Initializable {
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(InicioSesionController.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, rb.getString("msgErrorUser"));
+            } catch (NullPointerException ex){
+                Logger.getLogger(InicioSesionController.class.getName()).log(Level.SEVERE, null, ex);
                 JOptionPane.showMessageDialog(null, rb.getString("msgErrorDB"));
             }
         } else {
