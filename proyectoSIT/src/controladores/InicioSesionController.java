@@ -3,7 +3,9 @@
  * 
  * Contiene metodos para realizar la validación del inicio de sesión.
  * 
- * @author Edson Melgarejo
+ * @autor Gabriela Sandoval Cruz
+ * @autor Jose Rodrigo Ordóñes Pacheco
+ * @autor Edson Neftali Melgarejo Morales
  * @since 27/05/18
  */
 package controladores;

@@ -1,7 +1,7 @@
 /**
  * ------------------------------ENCABEZADO------------------------------
  * Nombre del Programa: Sistema Integral de Tutorias (SIT)
- * @autor Ganbriela Sandoval Cruz
+ * @autor Gabriela Sandoval Cruz
  * @autor Jose Rodrigo Ordóñes Pacheco
  * @autor Edson Neftali Melgarejo Morales
  * @since 16/Mayo/2018

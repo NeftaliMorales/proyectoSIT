@@ -1,5 +1,7 @@
 /**
- * @author Edson Melgarejo
+ * @autor Gabriela Sandoval Cruz
+ * @autor Jose Rodrigo Ordóñes Pacheco
+ * @autor Edson Neftali Melgarejo Morales
  * @since 30/05/18
  */
 package proyectosit;

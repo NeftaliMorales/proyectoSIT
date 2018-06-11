@@ -2,7 +2,9 @@
  * Interfaz de acceso a datos Tutoria, incluye métodos de conexión para las
  * clases Tutorado, Tutoria y Problema del modulo Tutoria.
  *
- * @author edson
+ * @autor Gabriela Sandoval Cruz
+ * @autor Jose Rodrigo Ordóñes Pacheco
+ * @autor Edson Neftali Melgarejo Morales
  * @since 07/06/18
  * @version 07/06/18
  */

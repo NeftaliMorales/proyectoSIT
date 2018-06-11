@@ -3,7 +3,9 @@
  * 
  * 
  * 
- * @author Edson Melgarejo
+ * @autor Gabriela Sandoval Cruz
+ * @autor Jose Rodrigo Ordóñes Pacheco
+ * @autor Edson Neftali Melgarejo Morales
  * @since 06/06/18
  * @version 07/06/18
  */

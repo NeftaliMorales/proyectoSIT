@@ -2,7 +2,9 @@
  * Interfaz de acceso a datos InicioSesion, incluye métodos de conexión para las
  * clases Usuario, Coordinador y Tutor del modulo InisioSesion.
  *
- * @author edson
+ * @autor Gabriela Sandoval Cruz
+ * @autor Jose Rodrigo Ordóñes Pacheco
+ * @autor Edson Neftali Melgarejo Morales
  * @since 03/06/18
  * @version 03/06/18
  */

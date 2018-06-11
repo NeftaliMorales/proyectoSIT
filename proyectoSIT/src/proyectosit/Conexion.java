@@ -1,7 +1,9 @@
 /*
  * Clase para realizar la conexion con la base de datos y las consultas.
  *
- * @author edson
+ * @autor Gabriela Sandoval Cruz
+ * @autor Jose Rodrigo Ordóñes Pacheco
+ * @autor Edson Neftali Melgarejo Morales
  * @since 06/06/18
  */
 package proyectosit;

@@ -1,7 +1,9 @@
 /**
  * Clase controlador de la interfaz grafica menuCoordinadorGUI.fxml
  * 
- * @author Edson Melgarejo
+ * @autor Gabriela Sandoval Cruz
+ * @autor Jose Rodrigo Ordóñes Pacheco
+ * @autor Edson Neftali Melgarejo Morales
  * @since 28/05/18
  */
 package controladores;
