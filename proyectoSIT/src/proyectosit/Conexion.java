@@ -30,8 +30,8 @@ public class Conexion {
             Class.forName("com.mysql.jdbc.Driver");//DRIVER
             cnx = DriverManager.getConnection("jdbc:mysql://localhost/sitdatabase", "root", "");//CONECCION (DATOS: DIRECCION DE LA BASE, USER, PASS)
             if(cnx != null){
-                sentencia = cnx.createStatement();//CREAR LA CONECCION
-                System.out.println("Coneccion exitosa");
+                sentencia = cnx.createStatement();//CREAR LA CONEXION
+                System.out.println("Conexión exitosa");
             }
         }        
         catch (SQLException | ClassNotFoundException ex) {
@@ -45,7 +45,7 @@ public class Conexion {
         if(cnx != null){
             try {
                 cnx.close();
-                System.out.println("Coneccion cerrada");
+                System.out.println("Conexión cerrada");
             } catch (SQLException ex) {
                 System.err.println(ex);
             }
