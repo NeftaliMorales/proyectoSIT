@@ -15,22 +15,23 @@ import org.junit.Before;
  */
 public class TutoriaTest {
     Tutoria testtutoria;
+    Conexion conex;
     public TutoriaTest() {
     }
 
     @Before
     public void before(){
         testtutoria = new Tutoria();
+        conex = new Conexion();
     }
     /**
      * Test of registrarSesion method, of class Tutoria.
      */
     @Test
     public void testRegistrarSesion() throws Exception {
+        testtutoria.registrarSesion("S12251425", 3);
     }
 
-    public void testCalcularFecha(){
-        //
-    }
+   
     
 }
