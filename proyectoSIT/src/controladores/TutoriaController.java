@@ -46,6 +46,7 @@ public class TutoriaController implements Initializable {
     private @FXML Label nombreUsuario;
     private @FXML TextField buscarTutorado;
     private @FXML ListView<Tutorado> tutorados;
+    private ArrayList<Tutorado> tutoradosList;
     
     //Sesion
     private @FXML Label nombreTutorado;
@@ -79,7 +80,7 @@ public class TutoriaController implements Initializable {
                 tutor.getApellidoPaterno() + " " +
                 tutor.getApellidoMaterno());
         
-        llenarListaTutorados();
+        llenarListaTutorados("");
         llenarListasProblemas();
         
         this.tipoProblema.getItems().addAll("Experiencia Educativa", "Depto/Servicio");
@@ -87,7 +88,20 @@ public class TutoriaController implements Initializable {
         buscarTutorado.setOnKeyReleased(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                llenarListaTutoradosFiltrada();
+                String filtro = buscarTutorado.getText();
+                if(filtro.equals("")){
+                    tutorados.getItems().clear();
+                    for(int i = 0; i < tutoradosList.size(); i++){
+                        tutorados.getItems().add(tutoradosList.get(i));
+                    }
+                } else {
+                    tutorados.getItems().clear();
+                    for(int i = 0; i < tutoradosList.size(); i++){
+                        if(buscarCoincidencia(tutoradosList.get(i).getNombres(), filtro)){
+                            tutorados.getItems().add(tutoradosList.get(i));
+                        }
+                    }
+                }
             }
         });
         tutorados.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -216,9 +230,9 @@ public class TutoriaController implements Initializable {
      * Método que se comunica con la clase TutoriaDao para recuperar los
      * Tutorados de la base de datos y llenar la listview tutorados.
      */
-    private void llenarListaTutorados(){
+    private void llenarListaTutorados(String filtro){
         try {
-            ArrayList<Tutorado> tutoradosList;
+            tutorados.getItems().clear();
             TutoriaDao tDao = new TutoriaDao();
             tutoradosList = tDao.recuperarTutorados(tutor.getIdUsuario());
             if(tutoradosList == null){
@@ -234,27 +248,26 @@ public class TutoriaController implements Initializable {
         }
     }
     
-    public void llenarListaTutoradosFiltrada(){
-        try {
-            tutorados.getItems().clear();
-            ArrayList<Tutorado> tutoradosList;
-            TutoriaDao tDao = new TutoriaDao();
-            tutoradosList = tDao.recuperarTutorados(tutor.getIdUsuario());
-            if(tutoradosList == null){
-                JOptionPane.showMessageDialog(null, rb.getString("msgTutoradosNull"));
-            } else {
-                for(int i = 0; i < tutoradosList.size(); i++){
-                    String filtro = buscarTutorado.getText();
-                    if(tutoradosList.get(i).getNombres().equals(filtro)){
-                        tutorados.getItems().add(tutoradosList.get(i));
-                    }
+    private boolean buscarCoincidencia(String palabra, String filtro){
+        boolean flag = false;
+        char[] palabraS = palabra.toCharArray();
+        char[] filtroS = filtro.toCharArray();
+        System.err.println(palabraS);
+        System.err.println(filtroS);
+        for(int i = 0; i < filtroS.length; i++){
+            try{
+                if(filtroS[i] == palabraS[i]){
+                    flag = true;
+                } else {
+                    flag = false;
                 }
+            } catch(ArrayIndexOutOfBoundsException ex) {
+                //Logger.getLogger(TutoriaController.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(TutoriaController.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, rb.getString("msgErroDB"));
         }
+        return flag;
     }
+    
     
     /**
      * Método que llena las listas de problemas en la interfaz grafica
