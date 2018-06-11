@@ -49,6 +49,8 @@ public class Conexion {
             } catch (SQLException ex) {
                 System.err.println(ex);
             }
+        }else{
+            System.out.println("No hay conexión para cerrar");
         }
     }
     /**
@@ -94,6 +96,10 @@ public class Conexion {
             System.err.println(ex);
         }
         return res;
+    }
+    
+    public void setCnxNull(){
+        this.cnx = null;
     }
 }
 

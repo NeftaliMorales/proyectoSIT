@@ -37,6 +37,12 @@ public class ConexionTest {
     public void testCerrar() {
         testconexion.cerrar();
     }
+    
+    @Test
+    public void testCerrarNull(){
+        testconexion.setCnxNull();
+        testconexion.cerrar();
+    }
 
     /**
      * Test of ejecutar method, of class Conexion.
