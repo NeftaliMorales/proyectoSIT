@@ -19,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import proyectosit.Coordinador;
 
@@ -55,6 +56,8 @@ public class MenuCoordinadorController implements Initializable {
                     Scene scene = new Scene(root);
                     
                     stage.setScene(scene);
+                    Image icono = new Image("/imagenes/Logo SIT.png");
+                    stage.getIcons().add(icono);
                     stage.setResizable(false);
                     stage.setTitle(rb.getString("tituloG"));
                     stage.show();
@@ -75,6 +78,8 @@ public class MenuCoordinadorController implements Initializable {
             Scene scene = new Scene(root);
             
             stage.setScene(scene);
+            Image icono = new Image("/imagenes/Logo SIT.png");
+            stage.getIcons().add(icono);
             stage.setResizable(false);
             stage.setTitle(rb.getString("tituloG"));
             stage.show();

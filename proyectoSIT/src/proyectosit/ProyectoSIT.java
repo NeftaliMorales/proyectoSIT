@@ -20,6 +20,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class ProyectoSIT extends Application {
@@ -34,6 +35,8 @@ public class ProyectoSIT extends Application {
         Scene scene = new Scene(root);
         
         primaryStage.setScene(scene);
+        Image icono = new Image("/imagenes/Logo SIT.png");
+        primaryStage.getIcons().add(icono);
         primaryStage.setResizable(false);
         primaryStage.setTitle(bundle.getString("tituloG"));
         primaryStage.show();

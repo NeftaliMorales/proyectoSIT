@@ -24,6 +24,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import proyectosit.Coordinador;
@@ -107,6 +108,8 @@ public class InicioSesionController implements Initializable {
                 Scene scene = new Scene(root);
                 
                 stage.setScene(scene);
+                Image icono = new Image("/imagenes/Logo SIT.png");
+                stage.getIcons().add(icono);
                 stage.setResizable(false);
                 stage.setTitle(rb.getString("tituloG"));
                 stage.show();                
@@ -122,7 +125,9 @@ public class InicioSesionController implements Initializable {
                 Stage stage = new Stage();
                 Scene scene = new Scene(root);
                 
-                stage.setScene(scene);                
+                stage.setScene(scene);   
+                Image icono = new Image("/imagenes/Logo SIT.png");
+                stage.getIcons().add(icono);
                 stage.setMaximized(true);
                 //stage.setResizable(false);
                 stage.setMinHeight(750);
