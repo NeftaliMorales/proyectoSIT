@@ -67,7 +67,9 @@ public class Usuario {
     /**
      * Método que realiza la validación del usuario, usa la clase DAO
      * InicioSesionDao para consultar en la base de datos al usuario.
-     * @return 
+     * @return  [en caso de ser exitoso]usuario2 tipo objeto Usuario 
+     * que contiene los datos del usuario deseado.
+     * [en caso de no ser exitoso] null
      */
     public Usuario ingresarSistema() throws SQLException{
         InicioSesionDao isDao = new InicioSesionDao();
