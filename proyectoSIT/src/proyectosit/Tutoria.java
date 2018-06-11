@@ -21,9 +21,9 @@ public class Tutoria {
     private ArrayList<Integer> problemasReportados;
     
     /**
-     * Metodo que se comunica con la clase DAO TutoriaDao para registra la
+     * Metodo que se comunica con la clase DAO TutoriaDao para registrar la
      * sesión de tutoria en la DB.
-     * @return 
+     * @return true si la operación fue exitosa
      */
     public boolean registrarSesion(String matriculaTutorado, int idTutor) throws SQLException{
         this.idTutoria = calcularID();
