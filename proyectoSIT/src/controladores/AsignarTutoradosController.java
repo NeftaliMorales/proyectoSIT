@@ -134,6 +134,9 @@ public class AsignarTutoradosController implements Initializable {
                         } catch (SQLException ex) {
                             Logger.getLogger(AsignarTutoradosController.class.getName()).log(Level.SEVERE, null, ex);
                             JOptionPane.showMessageDialog(null, rb.getString("msgErrorDB"));
+                        } catch (NullPointerException ex) {
+                            Logger.getLogger(AsignarTutoradosController.class.getName()).log(Level.SEVERE, null, ex);
+                            JOptionPane.showMessageDialog(null, rb.getString("msgErrorDB"));
                         }
                     }
                     if(flag == true) { 

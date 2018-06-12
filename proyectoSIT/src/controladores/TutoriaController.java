@@ -143,6 +143,8 @@ public class TutoriaController implements Initializable {
                         sesion.registrarSesion(tutoradoSeleccionado.getMatricula(), tutor.getIdUsuario());
                     } catch (SQLException ex) {
                         Logger.getLogger(TutoriaController.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (NullPointerException exc){
+                        JOptionPane.showMessageDialog(null, rb.getString("msgErrorDB"));
                     }
                 }
             }
@@ -153,10 +155,21 @@ public class TutoriaController implements Initializable {
             public void handle(MouseEvent event) {
                 Problema problema;
                 problema = problemasEE.getSelectionModel().getSelectedItem();
+                int valor = problema.getNumAlumnosReportan();
                 int reportar = JOptionPane.showConfirmDialog(null, rb.getString("msgReportarProblema"));
+                System.out.println(reportar);
                 if(reportar == 0){                    
-                    sesion.setProblema(problema.getIdProblema());
+                    //sesion.setProblema(problema.getIdProblema());
+                    valor++;
                 }
+                System.out.println("Valor:" + valor + " Reportar" + reportar + " ID prob:" + problema.getIdProblema());
+                TutoriaDao tuto= new TutoriaDao();
+                try {
+                    tuto.aumentarProblema(valor, problema.getIdProblema());
+                } catch (SQLException ex) {
+                    Logger.getLogger(TutoriaController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                llenarListasProblemas();
             }
         });
         
@@ -165,10 +178,20 @@ public class TutoriaController implements Initializable {
             public void handle(MouseEvent event) {
                 Problema problema;
                 problema = problemasDS.getSelectionModel().getSelectedItem();
+                int valor = problema.getNumAlumnosReportan();
                 int reportar = JOptionPane.showConfirmDialog(null, rb.getString("msgReportarProblema"));
                 if(reportar == 0){                    
-                    sesion.setProblema(problema.getIdProblema());
-                }                
+                    //sesion.setProblema(problema.getIdProblema());
+                    valor++;
+                }
+                System.out.println("Valor:" + valor + " Reportar" + reportar+ " ID prob:" + problema.getIdProblema());
+                TutoriaDao tuto= new TutoriaDao();
+                try {
+                    tuto.aumentarProblema(valor, problema.getIdProblema());
+                } catch (SQLException ex) {
+                    Logger.getLogger(TutoriaController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                llenarListasProblemas();
             }
         });
         

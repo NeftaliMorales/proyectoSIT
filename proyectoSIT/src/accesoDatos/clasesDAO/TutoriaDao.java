@@ -133,6 +133,7 @@ public class TutoriaDao implements TutoriaDAO{
                 + ", '2018-06-08',"+sesion.getNumSesion()+",'"+sesion.getComentarios()+"')";
         boolean flag = conn.ejecutar(sql);
         conn.cerrar();
+        System.out.println(sesion.getProblemasReportados());
         if(sesion.getProblemasReportados() == null){
             
         } else {
@@ -190,5 +191,12 @@ public class TutoriaDao implements TutoriaDAO{
             int id = rs.getInt(1);
             return id;
         }
+    }
+    
+    public void aumentarProblema(int valor, int id) throws SQLException{
+        Conexion conn = new Conexion();
+        String sql= "UPDATE `problema` SET `numAlumnos` = '" + valor +"' WHERE `problema`.`idProblema` = "+ id;
+        conn.ejecutar(sql);
+        conn.cerrar();
     }
 }
